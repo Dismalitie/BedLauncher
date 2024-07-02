@@ -21,6 +21,7 @@ namespace BedLauncher
         HomeTab ht = new HomeTab { Dock = DockStyle.Fill, };
         PreviewTab pt = new PreviewTab { Dock = DockStyle.Fill };
         EditorTab et = new EditorTab { Dock = DockStyle.Fill };
+        SettingsTab st = new SettingsTab { Dock = DockStyle.Fill };
 
         PreviewNotFound pnf = new PreviewNotFound { Dock = DockStyle.Fill };
         HomeNotFound hnf = new HomeNotFound { Dock = DockStyle.Fill };
@@ -69,11 +70,15 @@ namespace BedLauncher
             }
 
             ht.BringToFront();
+            ht.refresh();
 
             if (bedrockInstalled == false && previewInstalled == false)
             {
                 setTabs();
             }
+
+            tabcontainer.Controls.Add(st);
+            st.SendToBack();
         }
 
         void setTabs()
@@ -104,6 +109,8 @@ namespace BedLauncher
             {
                 editor.BackgroundImage = Properties.Resources.editor_uninstalled;
             }
+
+            settings.BackgroundImage = Properties.Resources.settings;
         }
 
         void setNotFounds()
@@ -180,6 +187,7 @@ namespace BedLauncher
         private void min_MouseDown(object sender, MouseEventArgs e)
         {
             min.BackgroundImage = Properties.Resources.min_pressed;
+            Funcs.playClick();
         }
 
         private void min_MouseUp(object sender, MouseEventArgs e)
@@ -227,6 +235,9 @@ namespace BedLauncher
                 home.BackgroundImage = Properties.Resources.home_pressed;
 
                 ht.BringToFront();
+                ht.refresh();
+
+                Funcs.playClick();
             }
             if (!bedrockInstalled)
             {
@@ -238,6 +249,8 @@ namespace BedLauncher
                 setNotFounds();
                 hnf.BringToFront();
                 hnf.Show();
+
+                Funcs.playClick();
             }
         }
 
@@ -276,6 +289,9 @@ namespace BedLauncher
                 preview.BackgroundImage = Properties.Resources.preview_pressed;
 
                 pt.BringToFront();
+                pt.refresh();
+
+                Funcs.playClick();
             }
             if (!previewInstalled)
             {
@@ -287,6 +303,8 @@ namespace BedLauncher
                 setNotFounds();
                 pnf.BringToFront();
                 pnf.Show();
+
+                Funcs.playClick();
             }
         }
 
@@ -325,6 +343,9 @@ namespace BedLauncher
                 editor.BackgroundImage = Properties.Resources.editor_pressed;
 
                 et.BringToFront();
+                et.refresh();
+
+                Funcs.playClick();
             }
             if (!previewInstalled)
             {
@@ -336,7 +357,56 @@ namespace BedLauncher
                 setNotFounds();
                 enf.BringToFront();
                 enf.Show();
+
+                Funcs.playClick();
+            }   
+        }
+
+        // settings
+
+        private void settings_MouseEnter(object sender, EventArgs e)
+        {
+            if (currentTab != "settings")
+            {
+                settings.BackgroundImage = Properties.Resources.settings_hovered;
             }
+        }
+
+        private void settings_MouseLeave(object sender, EventArgs e)
+        {
+            if (currentTab != "settings")
+            {
+                settings.BackgroundImage = Properties.Resources.settings;
+            }
+        }
+
+        private void settings_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (currentTab != "settings")
+            {
+                currentTab = "settings";
+                setTabs();
+                settings.BackgroundImage = Properties.Resources.settings_pressed;
+
+                st.BringToFront();
+                st.refresh();
+
+                Funcs.playClick();
+            }
+        }
+
+        // title easter egg
+
+        private void title_MouseEnter(object sender, EventArgs e)
+        {
+            //title.Size = new Size(329, 38);
+            //title.BackgroundImage = Properties.Resources.title_large_alt;
+        }
+
+        private void title_MouseLeave(object sender, EventArgs e)
+        {
+            //title.Size = new Size(295, 38);
+            //title.BackgroundImage = Properties.Resources.title_large;
         }
     }
 }

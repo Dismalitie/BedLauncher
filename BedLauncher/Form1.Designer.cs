@@ -32,21 +32,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dragger = new Siticone.UI.WinForms.SiticoneDragControl(this.components);
             this.tabcontainer = new System.Windows.Forms.Panel();
+            this.siticonePanel1 = new Siticone.UI.WinForms.SiticonePanel();
             this.min = new System.Windows.Forms.PictureBox();
             this.cls = new System.Windows.Forms.PictureBox();
             this.title = new System.Windows.Forms.PictureBox();
             this.topbar = new System.Windows.Forms.PictureBox();
-            this.siticonePanel1 = new Siticone.UI.WinForms.SiticonePanel();
+            this.settings = new System.Windows.Forms.PictureBox();
             this.editor = new System.Windows.Forms.PictureBox();
             this.preview = new System.Windows.Forms.PictureBox();
             this.home = new System.Windows.Forms.PictureBox();
             this.not_found = new System.Windows.Forms.PictureBox();
             this.tabcontainer.SuspendLayout();
+            this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.min)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cls)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.title)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.topbar)).BeginInit();
-            this.siticonePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.preview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.home)).BeginInit();
@@ -60,10 +62,24 @@
             // tabcontainer
             // 
             this.tabcontainer.Controls.Add(this.not_found);
-            this.tabcontainer.Location = new System.Drawing.Point(65, 59);
+            this.tabcontainer.Location = new System.Drawing.Point(74, 59);
             this.tabcontainer.Name = "tabcontainer";
-            this.tabcontainer.Size = new System.Drawing.Size(1302, 764);
+            this.tabcontainer.Size = new System.Drawing.Size(1293, 764);
             this.tabcontainer.TabIndex = 5;
+            // 
+            // siticonePanel1
+            // 
+            this.siticonePanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(51)))));
+            this.siticonePanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(108)))), ((int)(((byte)(109)))));
+            this.siticonePanel1.Controls.Add(this.settings);
+            this.siticonePanel1.Controls.Add(this.editor);
+            this.siticonePanel1.Controls.Add(this.preview);
+            this.siticonePanel1.Controls.Add(this.home);
+            this.siticonePanel1.Location = new System.Drawing.Point(-1, 60);
+            this.siticonePanel1.Name = "siticonePanel1";
+            this.siticonePanel1.ShadowDecoration.Parent = this.siticonePanel1;
+            this.siticonePanel1.Size = new System.Drawing.Size(75, 771);
+            this.siticonePanel1.TabIndex = 8;
             // 
             // min
             // 
@@ -104,6 +120,8 @@
             this.title.Size = new System.Drawing.Size(295, 38);
             this.title.TabIndex = 1;
             this.title.TabStop = false;
+            this.title.MouseEnter += new System.EventHandler(this.title_MouseEnter);
+            this.title.MouseLeave += new System.EventHandler(this.title_MouseLeave);
             // 
             // topbar
             // 
@@ -114,18 +132,18 @@
             this.topbar.TabIndex = 0;
             this.topbar.TabStop = false;
             // 
-            // siticonePanel1
+            // settings
             // 
-            this.siticonePanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(50)))), ((int)(((byte)(51)))));
-            this.siticonePanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(108)))), ((int)(((byte)(109)))));
-            this.siticonePanel1.Controls.Add(this.editor);
-            this.siticonePanel1.Controls.Add(this.preview);
-            this.siticonePanel1.Controls.Add(this.home);
-            this.siticonePanel1.Location = new System.Drawing.Point(-1, 60);
-            this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.ShadowDecoration.Parent = this.siticonePanel1;
-            this.siticonePanel1.Size = new System.Drawing.Size(75, 789);
-            this.siticonePanel1.TabIndex = 8;
+            this.settings.BackgroundImage = global::BedLauncher.Properties.Resources.settings;
+            this.settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.settings.Location = new System.Drawing.Point(5, 687);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(64, 64);
+            this.settings.TabIndex = 8;
+            this.settings.TabStop = false;
+            this.settings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.settings_MouseDown);
+            this.settings.MouseEnter += new System.EventHandler(this.settings_MouseEnter);
+            this.settings.MouseLeave += new System.EventHandler(this.settings_MouseLeave);
             // 
             // editor
             // 
@@ -194,11 +212,12 @@
             this.Text = "BedLauncher";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabcontainer.ResumeLayout(false);
+            this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.min)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cls)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.title)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.topbar)).EndInit();
-            this.siticonePanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.preview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.home)).EndInit();
@@ -220,6 +239,7 @@
         private Siticone.UI.WinForms.SiticonePanel siticonePanel1;
         private System.Windows.Forms.PictureBox not_found;
         private System.Windows.Forms.PictureBox editor;
+        private System.Windows.Forms.PictureBox settings;
     }
 }
 

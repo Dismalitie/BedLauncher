@@ -11,9 +11,10 @@ X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.pdb
 X:\VS\repos\BedLauncher\BedLauncher\bin\Debug\Siticone.UI.dll
 X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLaunc.F887622A.Up2Date
 X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.HomeTab.resources
-X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.PreviewTab.resources
 X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.PreviewNotFound.resources
 X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.HomeNotFound.resources
-X:\VS\repos\BedLauncher\BedLauncher\bin\Debug\FastColoredTextBox.dll
 X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.EditorTab.resources
 X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.EditorNotFound.resources
+X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.SettingsTab.resources
+X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.World.resources
+X:\VS\repos\BedLauncher\BedLauncher\obj\Debug\BedLauncher.PreviewTab.resources

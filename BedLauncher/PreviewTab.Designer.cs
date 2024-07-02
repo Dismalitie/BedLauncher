@@ -30,12 +30,17 @@
         {
             this.bannerclipper = new System.Windows.Forms.Panel();
             this.siticoneGradientPanel1 = new Siticone.UI.WinForms.SiticoneGradientPanel();
-            this.banner = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.worldContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.banner = new System.Windows.Forms.PictureBox();
+            this.world_title = new Siticone.UI.WinForms.SiticonePictureBox();
+            this.world_strip = new System.Windows.Forms.PictureBox();
             this.launch = new System.Windows.Forms.PictureBox();
             this.bannerclipper.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.banner)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.banner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.world_title)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.world_strip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.launch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +67,23 @@
             this.siticoneGradientPanel1.TabIndex = 4;
             this.siticoneGradientPanel1.UseTransparentBackground = true;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.panel1.Controls.Add(this.launch);
+            this.panel1.Location = new System.Drawing.Point(0, 379);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1302, 88);
+            this.panel1.TabIndex = 5;
+            // 
+            // worldContainer
+            // 
+            this.worldContainer.Location = new System.Drawing.Point(3, 536);
+            this.worldContainer.Name = "worldContainer";
+            this.worldContainer.Padding = new System.Windows.Forms.Padding(5);
+            this.worldContainer.Size = new System.Drawing.Size(1296, 214);
+            this.worldContainer.TabIndex = 12;
+            // 
             // banner
             // 
             this.banner.BackgroundImage = global::BedLauncher.Properties.Resources.preview_banner;
@@ -72,14 +94,25 @@
             this.banner.TabIndex = 0;
             this.banner.TabStop = false;
             // 
-            // panel1
+            // world_title
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel1.Controls.Add(this.launch);
-            this.panel1.Location = new System.Drawing.Point(0, 379);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1302, 88);
-            this.panel1.TabIndex = 5;
+            this.world_title.BackgroundImage = global::BedLauncher.Properties.Resources.worlds;
+            this.world_title.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.world_title.Location = new System.Drawing.Point(13, 473);
+            this.world_title.Name = "world_title";
+            this.world_title.ShadowDecoration.Parent = this.world_title;
+            this.world_title.Size = new System.Drawing.Size(200, 45);
+            this.world_title.TabIndex = 11;
+            this.world_title.TabStop = false;
+            // 
+            // world_strip
+            // 
+            this.world_strip.BackgroundImage = global::BedLauncher.Properties.Resources.secondary_bar;
+            this.world_strip.Location = new System.Drawing.Point(0, 466);
+            this.world_strip.Name = "world_strip";
+            this.world_strip.Size = new System.Drawing.Size(1302, 64);
+            this.world_strip.TabIndex = 10;
+            this.world_strip.TabStop = false;
             // 
             // launch
             // 
@@ -101,14 +134,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
+            this.Controls.Add(this.worldContainer);
+            this.Controls.Add(this.world_title);
             this.Controls.Add(this.bannerclipper);
+            this.Controls.Add(this.world_strip);
             this.Controls.Add(this.panel1);
             this.Name = "PreviewTab";
             this.Size = new System.Drawing.Size(1302, 764);
             this.Load += new System.EventHandler(this.PreviewTab_Load);
             this.bannerclipper.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.banner)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.banner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.world_title)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.world_strip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.launch)).EndInit();
             this.ResumeLayout(false);
 
@@ -121,5 +159,8 @@
         private System.Windows.Forms.PictureBox banner;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox launch;
+        private System.Windows.Forms.FlowLayoutPanel worldContainer;
+        private Siticone.UI.WinForms.SiticonePictureBox world_title;
+        private System.Windows.Forms.PictureBox world_strip;
     }
 }

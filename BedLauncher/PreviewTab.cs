@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace BedLauncher
@@ -18,9 +13,31 @@ namespace BedLauncher
             InitializeComponent();
         }
 
+        public void refresh()
+        {
+            foreach (World w in worldContainer.Controls)
+            {
+                w.refresh();
+            }
+        }
+
         private void PreviewTab_Load(object sender, EventArgs e)
         {
             launch.Location = new Point((Width / 2) - (launch.Width / 2), launch.Location.Y);
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\AppData\\Local\\Packages\\Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe\\LocalState\\games\\com.mojang\\minecraftWorlds\\";
+
+            int i = 0;
+
+            foreach (string dir in Directory.EnumerateDirectories(path))
+            {
+                i++;
+                if (i < 4)
+                {
+                    World w = new World(File.ReadAllText(dir + "\\levelname.txt"), World.WorldVersionType_Preview);
+                    worldContainer.Controls.Add(w);
+                }
+            }
         }
 
         private void launch_MouseEnter(object sender, EventArgs e)

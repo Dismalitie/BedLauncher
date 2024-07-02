@@ -36,11 +36,9 @@
     <ApplicationIcon>title_small.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FastColoredTextBox">
-      <HintPath>..\..\..\..\Recovery\Downloads\FastColoredTextBox.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
     <Reference Include="Siticone.UI">
       <HintPath>..\..\..\..\Common Res\DLLs\Siticone.UI.dll</HintPath>
     </Reference>
@@ -48,6 +46,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -82,6 +81,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcs.cs" />
     <Compile Include="HomeNotFound.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +108,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsTab.Designer.cs">
+      <DependentUpon>SettingsTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="World.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="World.Designer.cs">
+      <DependentUpon>World.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EditorNotFound.resx">
       <DependentUpon>EditorNotFound.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,28 +157,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <EmbeddedResource Include="SettingsTab.resx">
+      <DependentUpon>SettingsTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="World.resx">
+      <DependentUpon>World.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="res\bar.png" />
   </ItemGroup>
   <ItemGroup>
@@ -255,6 +277,55 @@
     <None Include="res\home_not_found.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\banners\preview_banner.png" />
+    <None Include="res\banners\home_banner.png" />
+    <None Include="res\banners\editor_banner.png" />
+    <None Include="res\buttons\min\min_pressed.png" />
+    <None Include="res\buttons\min\min_hovered.png" />
+    <None Include="res\buttons\min\min.png" />
+    <None Include="res\buttons\launch\generic\launch_generic_pressed.png" />
+    <None Include="res\buttons\launch\generic\launch_generic_hovered.png" />
+    <None Include="res\buttons\launch\generic\launch_generic.png" />
+    <None Include="res\buttons\launch\preview\launch_preview_pressed.png" />
+    <None Include="res\buttons\launch\preview\launch_preview_hovered.png" />
+    <None Include="res\buttons\launch\preview\launch_preview.png" />
+    <None Include="res\buttons\launch\editor\launch_editor_pressed.png" />
+    <None Include="res\buttons\launch\editor\launch_editor_hovered.png" />
+    <None Include="res\buttons\launch\editor\launch_editor.png" />
+    <None Include="res\buttons\launch\bedrock\launch_home_pressed.png" />
+    <None Include="res\buttons\launch\bedrock\launch_home_hovered.png" />
+    <None Include="res\buttons\launch\bedrock\launch_home.png" />
+    <None Include="res\buttons\close\x_pressed.png" />
+    <None Include="res\buttons\close\x_hovered.png" />
+    <None Include="res\buttons\close\x.png" />
+    <None Include="res\errors\preview_not_found.png" />
+    <None Include="res\errors\not_found.png" />
+    <None Include="res\errors\home_not_found.png" />
+    <None Include="res\errors\editor_not_found.png" />
+    <None Include="res\tabs\preview\preview_uninstalled_pressed.png" />
+    <None Include="res\tabs\preview\preview_uninstalled_hovered.png" />
+    <None Include="res\tabs\preview\preview_uninstalled.png" />
+    <None Include="res\tabs\preview\preview_pressed.png" />
+    <None Include="res\tabs\preview\preview_hovered.png" />
+    <None Include="res\tabs\preview\preview.png" />
+    <None Include="res\tabs\editor\editor_uninstalled_pressed.png" />
+    <None Include="res\tabs\editor\editor_uninstalled_hover.png" />
+    <None Include="res\tabs\editor\editor_uninstalled.png" />
+    <None Include="res\tabs\editor\editor_pressed.png" />
+    <None Include="res\tabs\editor\editor_hovered.png" />
+    <None Include="res\tabs\editor\editor.png" />
+    <None Include="res\tabs\bedrock\home_uninstalled_pressed.png" />
+    <None Include="res\tabs\bedrock\home_uninstalled_hovered.png" />
+    <None Include="res\tabs\bedrock\home_uninstalled.png" />
+    <None Include="res\tabs\bedrock\home_pressed.png" />
+    <None Include="res\tabs\bedrock\home_hovered.png" />
+    <None Include="res\tabs\bedrock\home.png" />
+    <None Include="res\ui\worlds.png" />
+    <None Include="res\ui\title_small.png" />
+    <None Include="res\ui\title_large.png" />
+    <None Include="res\ui\sidebar.png" />
+    <None Include="res\ui\bar.png" />
+    <None Include="res\worlds.png" />
     <None Include="res\editor_not_found.png" />
     <None Include="res\sidebar.png" />
     <None Include="res\launch_editor_pressed.png" />
@@ -267,6 +338,29 @@
     <None Include="res\editor_pressed.png" />
     <None Include="res\editor_hovered.png" />
     <None Include="res\editor.png" />
+    <None Include="res\tabs\settings\settings.png" />
+    <None Include="res\tabs\settings\settings_hovered.png" />
+    <None Include="res\tabs\settings\settings_pressed.png" />
+    <None Include="res\ui\secondary_bar.png" />
+    <None Include="res\ui\toggle\toggle_off.png" />
+    <None Include="res\ui\toggle\toggle_off_hovered.png" />
+    <None Include="res\ui\toggle\toggle_on.png" />
+    <None Include="res\ui\toggle\toggle_on_hovered.png" />
+    <None Include="res\ui\sfx.png" />
+    <None Include="res\errors\generic.png" />
+    <None Include="res\banners\generic_banner.png" />
+    <None Include="res\buttons\play\world_play.png" />
+    <None Include="res\buttons\play\world_play_hovered.png" />
+    <None Include="res\ui\title_large_alt.png" />
+    <None Include="res\ui\useful_links.png" />
+    <None Include="res\banners\editor_tutorials\editor_overview_banner.png" />
+    <None Include="res\buttons\open_browser\open_browser.png" />
+    <None Include="res\buttons\open_browser\open_browser_hovered.png" />
+    <None Include="res\banners\editor_tutorials\editor_tutorial_banner.png" />
+    <None Include="res\banners\editor_tutorials\editor_extensions_banner.png" />
+    <None Include="res\tabs\mods\mods.png" />
+    <None Include="res\tabs\mods\mods_hovered.png" />
+    <None Include="res\tabs\mods\mods_pressed.png" />
     <Content Include="title_small.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
