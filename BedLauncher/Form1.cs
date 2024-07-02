@@ -165,6 +165,7 @@ namespace BedLauncher
         private void cls_MouseDown(object sender, MouseEventArgs e)
         {
             cls.BackgroundImage = Properties.Resources.x_pressed;
+            Properties.Settings.Default.Save();
         }
 
         private void cls_Click(object sender, EventArgs e)

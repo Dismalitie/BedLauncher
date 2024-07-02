@@ -61,7 +61,7 @@ namespace BedLauncher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.1_PublicTestBuild")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.1_PublicTestBuild -> Patch 1")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
